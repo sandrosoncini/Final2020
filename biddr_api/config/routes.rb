@@ -6,7 +6,7 @@ Rails.application.routes.draw do
         resources :bids, only: [:create]
       end
       resource :session, only: [:create, :destroy]
-      # get("/users/current", to: "users#current")
+      get("/users/current", to: "sessions#current")
       resources :users, only: [:create]
     end
   end 

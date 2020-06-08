@@ -17,4 +17,9 @@ class Api::V1::SessionsController < ApplicationController
         session[:user_id] = nil
         render json: { json: "You are Signed Out"}
     end
+
+    def current
+        render json: current_user
+    end
+    
 end

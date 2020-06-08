@@ -31,5 +31,19 @@ module BiddrApi
 
     # Don't generate system test files.
     config.generators.system_tests = nil
+
+    config.middleware.insert_before 0, Rack::Cors do
+      allow do
+         # origin  accepts an array os domain names. Thes are all the whitelistred DOMAIS that
+        origins 'localhost:5500', '127.0.0.1:5500', 'localhost:8080'
+        resource(
+          "/api/*", # only allow CORS to paths thata look like /api
+          
+          headers: :any, #allow requests to contain any headers
+          credentials: true,
+          methods: [:get, :post, :delete, :patch, :put, :options]
+        )
+      end
+    end
   end
 end

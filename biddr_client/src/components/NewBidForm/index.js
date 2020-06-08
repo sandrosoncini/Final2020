@@ -1,28 +1,24 @@
 import React from 'react';
 
-function NewBidForm(props) {
-
+export function NewBidForm(props) {
+    
   function handleSubmit(event) {
+    console.log(props)
     event.preventDefault();
     const { currentTarget } = event;
     const formData = new FormData(currentTarget);
+    
     props.createBid({
-      title: formData.get('title'),
-      body: formData.get('body')
+      bid_price: formData.get('bid_price')
     })
   }
 
   return(
-    <form className="NewQuestionForm" onSubmit={handleSubmit}>
+    <form className="NewBidForm" onSubmit={handleSubmit}>
       <div>
-        <label htmlFor="title">Title</label>
+        <label htmlFor="bid_price">Bid</label>
         <br/>
-        <input name="title" id="title"></input>
-      </div>
-      <div>
-        <label htmlFor="body">Body</label>
-        <br/>
-        <textarea name="body" id="body"></textarea>
+        <input name="bid_price" id="bid_price"></input>
       </div>
       <div>
         <input type="submit" value="submit"/>
@@ -31,4 +27,3 @@ function NewBidForm(props) {
   )
 }
 
-export default NewQuestionForm
