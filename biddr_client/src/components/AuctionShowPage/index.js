@@ -10,7 +10,7 @@ class AuctionShowPage extends Component {
     constructor(props) {
         super(props); 
         this.state = {
-          auction: {}
+          auction: {bids: []}
         }
         this.createBid = this.createBid.bind(this);
     }
@@ -30,7 +30,7 @@ class AuctionShowPage extends Component {
       createBid(params) {
         console.log('props:', this.props)
         params.id = this.props.match.params.id
-        Bid.create(params, this.props.match.id).then((auction) => {
+        Bid.create(params).then((auction) => {
           this.props.history.push(`/auctions/${this.props.match.params.id}`)
         })
       }  
