@@ -2,6 +2,7 @@ import React from 'react';
 import WelcomePage from './components/WelcomePage'
 import AuctionIndexPage from './components/AuctionIndexPage/index'
 import AuctionShowPage from './components/AuctionShowPage/index'
+import NewAuctionPage from './components/NewAuctionPage'
 import SignInPage from './components/SignInPage'
 import Navbar from './components/NavBar'
 import {User} from './request'
@@ -39,6 +40,7 @@ class App extends React.Component {
       <div className="App">
       <Switch>
         <Route path="/" exact component={WelcomePage} />
+        <Route path="/auctions/new" component={NewAuctionPage}/>
         <Route path="/sign_in" component={SignInPage} />
         <Route path="/auctions" exact component={AuctionIndexPage} />
         <Route path="/auctions/:id" exact component={AuctionShowPage} />

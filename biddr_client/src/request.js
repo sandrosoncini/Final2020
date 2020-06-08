@@ -14,23 +14,36 @@ export const Auction = {
         return fetch(`${BASE_URL}/auctions/${id}`, {
             credentials: 'include'
         }).then(res => res.json());
+    },
+
+    create(params) {
+        console.log('params create: ',params)
+        return fetch(`${BASE_URL}/auctions`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params)
+        }).then(res => res.json());
     }
 }
 
 
 export const Bid = {
 
-    // create(params) {
-    //     console.log('request: ', params)
-    //     return fetch(`${BASE_URL}/auctions/${id}/bids`, {
-    //         method: 'POST',
-    //         credentials: 'include',
-    //         headers: {
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify(params)
-    //     }).then(res => res.json());
-    // },
+    create(params) {
+        console.log('request: ', params)
+        return fetch(`${BASE_URL}/auctions/${params.id}/bids`, {
+            method: 'POST',
+            credentials: 'include',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(params)
+        }).then(res => res.json());
+    },
+
 }
 
 export const Session = {

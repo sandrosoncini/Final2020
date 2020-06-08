@@ -34,7 +34,7 @@ class AuctionIndexPage extends Component {
                 /> 
             )
           })
-          console.log('HERE', auctions)
+
         return (
             <div>
                 <h1> Auction Index Page </h1>  
